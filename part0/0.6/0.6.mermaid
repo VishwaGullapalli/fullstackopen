@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+    Note right of browser: Rerender the note list and then post request type sent as application/json
+    activate server
+    server-->>browser: 201 Note Created
+    deactivate server
+
+    Note right of browser: No redirects and the page stays with no further HTTP requests
